@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornel Atentar Portfolio Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header Container */
+        .main-header {
+            background-color: green; /* Matching the purple in the image */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            min-height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added subtle shadow for depth */
+            border-bottom: 2px solid rgba(255, 77, 77, 0.5); /* Added thin border for emphasis */
+            backdrop-filter: blur(5px); /* Added blur for bubble-like transparency */
+            border-radius: 10px; /* Added rounding for bubble shape */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transitions for bubble effect */
+        }
+
+        .main-header:hover {
+            transform: translateY(-2px); /* Subtle lift on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        /* Left Side: Contact Info Box */
+        .contact-box {
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border for bubble effect */
+            padding: 12px 20px; /* Increased padding for bubble shape */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background for glassy bubble look */
+            backdrop-filter: blur(10px); /* Blur effect for modern bubble transparency */
+            border-radius: 20px; /* Rounded corners for bubble shape */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2); /* Outer shadow and inner highlight for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        }
+
+        .contact-box:hover {
+            transform: translateY(-3px) scale(1.02); /* Lift and slight scale on hover for interactive bubble feel */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3); /* Enhanced shadow on hover */
+        }
+
+        .contact-box h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: white; /* Ensure text is visible on transparent background */
+        }
+
+        .contact-item {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            margin-top: 6px; /* Slightly increased margin for spacing */
+            opacity: 0.9;
+            transition: opacity 0.3s ease; /* Smooth fade */
+            color: white; /* Ensure text is visible */
+        }
+
+        .contact-item:hover {
+            opacity: 1; /* Full opacity on hover */
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            font-size: 10px;
+        }
+
+        /* Right Side: Navigation */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: opacity 0.2s ease, transform 0.2s ease; /* Enhanced transition */
+            padding: 5px 10px; /* Added padding for better click area */
+            border-radius: 3px; /* Slight rounding */
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+            transform: scale(1.05); /* Subtle scale on hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Added background on hover */
+        }
+
+        /* Bubble Card for Sections (About Me, Skills, Projects, Recommendations) */
+        .bubble-card {
+            margin: 20px auto;
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background for glassy bubble look */
+            backdrop-filter: blur(10px); /* Blur effect for modern bubble transparency */
+            border-radius: 25px; /* Rounded corners for bubble shape */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2); /* Outer shadow and inner highlight for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border for bubble effect */
+        }
+
+        .bubble-card:hover {
+            transform: translateY(-5px) scale(1.02); /* Lift and slight scale on hover for interactive bubble feel */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3); /* Enhanced shadow on hover */
+        }
+
+        /* Individual Section Styles within Bubble Card */
+        .section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .about h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .about p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .skills, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-card, .project-card {
+            flex: 1 1 200px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .recommendations li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 4px solid #333;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        #open-modal {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #open-modal:hover {
+            background-color: #555;
+        }
+
+        /* Floating Modal for Form */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .close:hover {
+            color: #555;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjusted shadow for mobile */
+                border-radius: 5px; /* Less rounding on mobile */
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .contact-box {
+                width: 100%; /* Full width on mobile */
+                border-radius: 15px; /* Slightly less rounded on mobile for fit */
+            }
+            .bubble-card {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            .skills, .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="contact-box">
+            <h1>Jornel Atentar</h1>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Atentar@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+1212215</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#">About Me</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Recommendations</a>
+        </nav>
+    </header>
+
+    <!-- Bubble Card for Sections (About Me, Skills, Projects, Recommendations) -->
+    <div class="bubble-card">
+        <!-- About Me Section -->
+        <section id="about" class="section about">
+            <h2>About Me</h2>
+            <img src="https://i.pinimg.com/736x/e0/a0/51/e0a05128d5ac7cb4b310c44c1a727928.jpg" alt="Profile Image">
+            <h3>Jornel Atentar</h3>
+            <p>I am a passionate web developer with 5 years of experience in creating dynamic, user-friendly websites. I specialize in front-end technologies and enjoy solving complex problems through code. In my free time, I contribute to open-source projects and mentor aspiring developers. My mission is to build innovative digital solutions that make a positive impact.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <h2>Skills</h2>
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+                <p>Expert in semantic markup and accessibility.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+                <p>Proficient in responsive design and animations.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js-square"></i>
+                <h3>JavaScript</h3>
+                <p>Skilled in ES6+ and dynamic scripting.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+                <p>Experienced in building interactive UIs.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-node-js"></i>
+                <h3>Node.js</h3>
+                <p>Proficient in server-side development.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>E-Commerce Platform</h3>
+                <p>A full-stack online store built with Node.js and MongoDB, featuring user authentication and payment integration.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>A responsive web app using APIs to display real-time weather data with interactive maps.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Generator</h3>
+                <p>A tool that dynamically generates personalized portfolios based on user input, using vanilla JavaScript.</p>
+                <a href="#">View Project</a>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section recommendations">
+            <h2>Recommendations</h2>
+            <ul id="rec-list">
+                <li><strong>Jane Smith:</strong> "Jornel is an exceptional developer who consistently delivers high-quality work. His attention to detail is unmatched."</li>
+                <li><strong>Mike Johnson:</strong> "Working with Jornel was a pleasure. He brought innovative ideas to our team and improved our project's efficiency."</li>
+                <li><strong>Emily Davis:</strong> "Jornel's expertise in JavaScript helped us launch our app ahead of schedule. Highly recommend him for any tech role."</li>
+            </ul>
+            <button id="open-modal">Add Recommendation</button>
+        </section>
+    </div>
+
+    <!-- Floating Modal for Form -->
+    <div id="rec-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Leave a Recommendation</h3>
+            <form id="rec-form">
+                <input type="text" id="rec-name" placeholder="Your Name" required>
+                <textarea id="rec-text" placeholder="Your Recommendation" required></textarea>
+                <button type="submit">Submit Recommendation</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('rec-modal');
+        const openBtn = document.getElementById('open-modal');
+        const closeBtn = document.querySelector('.close');
+        
+        // Open modal
+        openBtn.onclick = () => modal.style.display = 'flex';
+        
+        // Close modal
+        closeBtn.onclick = () => modal.style.display = 'none';
+        
+        // Close on backdrop click
+        window.onclick = (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        };
+        
+        // Form submission
+        document.getElementById('rec-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('rec-name').value;
+            const text = document.getElementById('rec-text').value;
+            const list = document.getElementById('rec-list');
+            const newRec = document.createElement('li');
+            newRec.innerHTML = `<strong>${name}:</strong> "${text}"`;
+            list.appendChild(newRec);
+            document.getElementById('rec-name').value = '';
+            document.getElementById('rec-text').value = '';
+            modal.style.display = 'none'; // Close modal after submit
+            alert('Thank you for leaving a recommendation!');
+        });
+    </script>
+
+</body>
+</html>
